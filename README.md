@@ -1,9 +1,9 @@
 # S.A.M - Plantilla de Propuesta Marketing
 
-## 📋 Descripción
-Plantilla interactiva de propuesta de transformación digital para la Alcaldía de Guacara.
+## Descripción
+Plantilla interactiva de propuesta de transformación digital para S.A.M.
 
-## 🚀 Cómo ejecutar
+## Cómo ejecutar
 
 ### Opción 1: Con Node.js (Recomendado)
 ```bash
@@ -13,24 +13,24 @@ Luego abre: http://localhost:3000
 
 ### Opción 2: Usar Live Server (VS Code)
 1. Instala la extensión "Live Server"
-2. Click derecho en `index.html` → "Open with Live Server"
+2. Click derecho en `index.html` -> "Open with Live Server"
 
-## 📁 Estructura del Proyecto
-```
+## Estructura del Proyecto
+```text
 plantilla propuesta marketing/
 ├── index.html          # Página principal
-├── app.js             # Lógica de interacción
-├── styles.css         # Estilos
-├── server.js          # Servidor Node.js
-├── assets/            # Imágenes y videos
-└── README.md          # Este archivo
+├── app.js              # Lógica de interacción
+├── styles.css          # Estilos
+├── server.js           # Servidor Node.js
+├── assets/             # Imágenes y videos
+└── README.md           # Este archivo
 ```
 
-## ⚙️ Requisitos
+## Requisitos
 - Node.js 12+ (para usar server.js)
 - Navegador moderno
 
-## 📝 Notas
+## Notas
 - El servidor sirve la aplicación en puerto 3000
 - Todos los estilos y scripts se sirven correctamente
 - Compatible con navegadores desktop y mobile

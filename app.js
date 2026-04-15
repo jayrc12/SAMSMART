@@ -13,8 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     document.body.classList.add('no-scroll');
 
+    let introClosed = false;
+
     const dismissIntro = () => {
-      if (!introOverlay) return;
+      if (introClosed || !introOverlay) return;
+      introClosed = true;
       introOverlay.classList.add('hidden');
       document.body.classList.remove('no-scroll');
       setTimeout(() => introOverlay.remove(), 600);
@@ -30,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     setTimeout(dismissIntro, 8000);
+    setTimeout(dismissIntro, 12000);
   }
 
   // ============================================
@@ -52,12 +56,12 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!chatMessages) return;
 
   const chatScript = [
-    { type: 'sticker', speaker: 'Agustín', avatar: 'A', avatarBg: '#076fcc', status: 'en línea', src: 'assets/12.png', delay: 1500 },
-    { type: 'bot', speaker: 'Agustín', avatar: 'A', avatarBg: '#076fcc', status: 'escribiendo...', text: '¡Buen día! Recibimos su consulta operativa.', delay: 1200 },
-    { type: 'system', text: 'Transfiriendo a Prevención y Control...', src: '', delay: 1000 },
-    { type: 'sticker', speaker: 'Tacarigua', avatar: 'T', avatarBg: '#1e1e1e', status: 'conectado', src: 'assets/13.png', delay: 1500 },
-    { type: 'bot', speaker: 'Tacarigua', avatar: 'T', avatarBg: '#1e1e1e', status: 'verificando...', text: 'He recibido su caso. Detectamos una infracción pendiente en el sistema.', delay: 1800 },
-    { type: 'bot', speaker: 'Tacarigua', avatar: 'T', avatarBg: '#1e1e1e', status: 'generando', text: 'Se ha emitido la boleta 55421. Puedes pagarlo inmediatamente con Agustín.', delay: 2000 }
+    { type: 'sticker', speaker: 'Neo', avatar: 'N', avatarBg: '#076fcc', status: 'en línea', src: 'assets/12.png', delay: 1500 },
+    { type: 'bot', speaker: 'Neo', avatar: 'N', avatarBg: '#076fcc', status: 'clasificando...', text: '¡Buen día! Ya registré su solicitud y la estoy priorizando.', delay: 1200 },
+    { type: 'system', text: 'Transfiriendo a control vial...', src: '', delay: 1000 },
+    { type: 'sticker', speaker: 'Sema', avatar: 'S', avatarBg: '#1e1e1e', status: 'conectado', src: 'assets/13.png', delay: 1500 },
+    { type: 'bot', speaker: 'Sema', avatar: 'S', avatarBg: '#1e1e1e', status: 'verificando...', text: 'He detectado una infracción en tiempo real y la estoy reportando.', delay: 1800 },
+    { type: 'bot', speaker: 'Sema', avatar: 'S', avatarBg: '#1e1e1e', status: 'notificando', text: 'La multa fue emitida y Argos ya fue notificado para gestionar el cobro.', delay: 2000 }
   ];
 
   let chatIndex = 0;
@@ -95,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
       chatMessages.appendChild(el);
     } else if (item.type === 'sticker') {
       const el = document.createElement('div');
-      el.className = 'chat-sticker' + (item.align === 'right' ? ' chat-sticker-right' : '');
+      el.className = 'chat-sticker' + (item.align === 'right'  ' chat-sticker-right' : '');
       el.innerHTML = '<img src="' + item.src + '" alt="sticker">';
       chatMessages.appendChild(el);
     } else if (item.type === 'system') {
@@ -122,8 +126,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const item = chatScript[chatIndex];
-    const typing = (item.type === 'bot' || item.type === 'sticker') ? showTyping() : null;
-    const typingDelay = typing ? 700 : 0;
+    const typing = (item.type === 'bot' || item.type === 'sticker')  showTyping() : null;
+    const typingDelay = typing  700 : 0;
 
     setTimeout(() => {
       if (typing) typing.remove();
